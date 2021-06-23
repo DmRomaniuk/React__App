@@ -15,12 +15,14 @@ const App = (props) => {
             <div className="container">
                 <div className="row">
                     <div className="wrap">
-                        <div className="app-wrapper">
+                        <div className="app-wrapper col-md-12">
                             {/*Header*/}
-                            <Header/>
+                            <div className="app-wrapper-header col-md-12">
+                                <Header/>
+                            </div>
                             {/*/Header*/}
                             {/*Navbar && Content*/}
-                            <div className="app-wrapper-display">
+                            <div className="app-wrapper-display col-md-12">
                                 {/*Navbar*/}
                                 <div className="app-wrapper-navigation">
                                     <NavBar state={props.appState.sideBar} />
