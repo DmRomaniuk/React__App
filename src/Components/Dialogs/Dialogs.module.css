@@ -1,0 +1,38 @@
+.dialogs {
+
+}
+
+.dialogs__wrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 900px;
+    margin: 0px auto;
+
+}
+
+.dialogs_wrapper__list {
+
+}
+.dialogs_wrapper__list .active{
+    color: red;
+}
+
+.dialog_list__item {
+
+}
+
+.dialog_list__item:not(:last-child) {
+    padding-bottom: 20px;
+}
+
+.dialogs_wrapper__messages {
+
+}
+
+.dialogs_message__item {
+
+}
+
+.dialogs_message__item:not(:last-child) {
+    padding-bottom: 20px;
+}

@@ -1,0 +1,11 @@
+.friends__wrapper{
+
+}
+.userImage{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+.friends__wrapper:not(:last-child){
+    margin-bottom: 20px;
+}

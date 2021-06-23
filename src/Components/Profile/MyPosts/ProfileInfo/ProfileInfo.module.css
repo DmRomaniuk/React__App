@@ -1,0 +1,8 @@
+.description__Block{
+    padding: 10px;
+}
+.background__image{
+    background-image: url("https://wallpaperaccess.com/full/964430.jpg");
+    height: 400px;
+    background-size: contain;
+}

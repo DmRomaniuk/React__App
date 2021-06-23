@@ -1,0 +1,16 @@
+
+.item img{
+    width: 100px;
+}
+.posts{
+    margin-top: 30px;
+    color: white;
+}
+.myPosts__block{
+    padding: 10px;
+}
+.myPosts__title{
+    text-align: center;
+    font-family: "Times New Roman";
+    font-size: 35px;
+}

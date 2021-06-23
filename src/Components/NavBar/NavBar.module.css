@@ -1,0 +1,42 @@
+.nav {
+    grid-area: n;
+    text-align: center;
+    margin: 50px 0px 80px 0px;
+}
+
+.item a:hover {
+    border-bottom: 1px solid lawngreen;
+    color: lawngreen;
+}
+
+.item:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.item .active__Link {
+    color: lawngreen;
+}
+
+.sideBar__wrapper {
+
+}
+
+.sideBar__title {
+    font-family: Algerian;
+    text-decoration: underline;
+    color: darkgray;
+}
+
+.indicate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.online {
+    background-color: red;
+    width: 13px;
+    height: 13px;
+    margin-left: 10px;
+    border-radius: 50%;
+}

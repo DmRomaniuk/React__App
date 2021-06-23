@@ -1,0 +1,25 @@
+.item{
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.item img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.item:not(:last-child){
+    margin-bottom: 100px;
+}
+.post_Item__image{
+    margin-right: 30px;
+}
+.post_Item_info__wrapper{
+    margin-left: 30px;
+}
+.post__message{
+
+}
+.post__likes{
+
+}
