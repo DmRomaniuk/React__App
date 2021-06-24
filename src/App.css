@@ -7,15 +7,20 @@ a {
     color: white;
 }
 
+.container {
+    min-width: 1600px;
+    padding: 0px !important;
+}
+
+.row{
+    margin: 0px;
+}
+
 .wrap {
     width: 1600px;
     margin: 0px auto;
 }
 
-.container {
-    min-width: 1600px;
-    padding: 0px;
-}
 
 .app-wrapper {
     margin-top: 10px;
@@ -52,6 +57,58 @@ a {
     width: 100%;
     height: 400px;
 }
+
+@media (max-width: 1630px) {
+    .container{
+        min-width: auto;
+    }
+
+    .wrap{
+        width: 1599px;
+    }
+}
+
+@media (max-width: 1600px) {
+    .container {
+        min-width: auto;
+    }
+
+    .wrap {
+        width: 1200px;
+    }
+}
+
+@media (max-width: 1230px) {
+    .container{
+        min-width: auto;
+    }
+
+    .wrap{
+        width: 1199px;
+    }
+}
+
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 1045px) {
+    .container{
+        min-width: auto;
+    }
+    .wrap{
+        width: 992px;
+    }
+}
+
+@media (max-width: 992px) {
+
+}
+
+@media (max-width: 768px) {
+
+}
+
 
 
 
