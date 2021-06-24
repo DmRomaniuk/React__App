@@ -24,12 +24,12 @@ const App = (props) => {
                             {/*Navbar && Content*/}
                             <div className="app-wrapper-display col-md-12">
                                 {/*Navbar*/}
-                                <div className="app-wrapper-navigation">
+                                <div className="app-wrapper-navigation col-md-2">
                                     <NavBar state={props.appState.sideBar} />
                                 </div>
                                 {/*/Navbar*/}
                                 {/*Content*/}
-                                <div className="app-wrapper-content">
+                                <div className="app-wrapper-content col-md-10">
                                     <Route /*exact*/ path="/dialogs"
                                                      render={() =><Dialogs state ={props.appState.dialogsPage}/>}
                                     />
