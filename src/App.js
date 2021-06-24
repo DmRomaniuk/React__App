@@ -31,7 +31,7 @@ const App = (props) => {
                                 {/*Content*/}
                                 <div className="app-wrapper-content col-md-10">
                                     <Route /*exact*/ path="/dialogs"
-                                                     render={() =><Dialogs state ={props.appState.dialogsPage}/>}
+                                                     render={() => <Dialogs state ={props.appState.dialogsPage}/>}
                                     />
                                     <Route path="/profile"
                                            render={() => <Profile state={props.appState.profilePage}/>}
