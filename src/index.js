@@ -1,19 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import state from "./Redux/State";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {rerenderEntireTree} from "./Render";
+import state from "./Redux/State";
+import reportWebVitals from "./reportWebVitals";
 
-
-ReactDOM.render(
-  <React.StrictMode>
-    <App appState = {state}/>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
+rerenderEntireTree(state);
 
 
 // If you want to start measuring performance in your app, pass a function

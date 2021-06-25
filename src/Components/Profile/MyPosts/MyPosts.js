@@ -15,14 +15,18 @@ const MyPosts = (props) => {
 
     // create function - button onClick for post adding
     let addPost = () => {
-      alert(textAreaElement.current.value);
+      let text = textAreaElement.current.value;
+      props.addNewPost(text);
+      textAreaElement.current.value = '';
     };
 
     return (
         <div className={classes.myPosts__block}>
             <h3 className={classes.myPosts__title}>My Posts</h3>
             <div>
-                <textarea ref={textAreaElement}></textarea>
+                <textarea ref={textAreaElement}>
+                    Write your text...
+                </textarea>
             </div>
             <div>
                 <button onClick={addPost}>

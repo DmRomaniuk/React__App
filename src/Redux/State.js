@@ -1,5 +1,7 @@
+import {rerenderEntireTree} from "../Render";
+
 let state = {
-    profilePage:{
+    profilePage: {
         postsData: [
             {
                 id: 1,
@@ -13,7 +15,7 @@ let state = {
             }
         ],
     },
-    dialogsPage:{
+    dialogsPage: {
         messagesData: [
             {
                 id: 1,
@@ -67,11 +69,11 @@ let state = {
             }
         ],
     },
-    sideBar:{
+    sideBar: {
         users: [
             {
-               id: 1,
-               image: 'https://www.meme-arsenal.com/memes/12f76916028fc69eace80be7a8b2c419.jpg',
+                id: 1,
+                image: 'https://www.meme-arsenal.com/memes/12f76916028fc69eace80be7a8b2c419.jpg',
             },
             {
                 id: 2,
@@ -88,5 +90,15 @@ let state = {
         ]
     }
 }
+
+export let addNewPost = (newPostMessage) => {
+    let newPostData = {
+        id: 3,
+        message: newPostMessage,
+        likesCount: 0,
+    }
+    state.profilePage.postsData.push(newPostData);
+    rerenderEntireTree(state);
+};
 
 export default state;
