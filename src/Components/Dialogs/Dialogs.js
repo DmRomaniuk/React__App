@@ -8,27 +8,36 @@ const Dialogs = (props) => {
 
 
 // method map for every dialog
-    let dialogsElement = props.state.dialogsData.map((d) => {
+    let dialogsElement = props.dialogsPageState.dialogsData.map((d) => {
         return <DialogItem name={d.name} id={d.id}/>
     });
 
 // method map for every message
-    let messagesElement = props.state.messagesData.map((messageItem) => {
+    let messagesElement = props.dialogsPageState.messagesData.map((messageItem) => {
         return <Message message={messageItem.message}/>
     })
 
 // create ref link for textarea
-let dialogTextArea = React.createRef();
+    let dialogTextArea = React.createRef();
 
 // create function - button onClick
-let addInfoBtn = () => {
-    alert(dialogTextArea.current.value)
-};
+    let addInfoBtn = () => {
+        props.onChangeUpdate('')
+    };
+
+    let onChangeArea = () => {
+        let messageText = dialogTextArea.current.value;
+        props.onChangeUpdate(messageText);
+    }
 
     return (
         <div className={classes.dialogs}>
             <div>
-                <textarea ref={dialogTextArea}></textarea>
+                <textarea
+                    ref={dialogTextArea}
+                    onChange={onChangeArea}
+                    value={props.dialogsPageState.messagesTextArea}
+                />
                 <button onClick={addInfoBtn}>
                     add some info
                 </button>

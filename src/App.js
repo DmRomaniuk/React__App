@@ -8,6 +8,7 @@ import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
 import SupportService from "./Components/Support/SupportService";
+import {onChangeUpdate, updateNewPost} from "./Redux/State";
 
 
 const App = (props) => {
@@ -26,16 +27,27 @@ const App = (props) => {
                             <div className="app-wrapper-display col-md-12">
                                 {/*Navbar*/}
                                 <div className="app-wrapper-navigation col-md-2">
-                                    <NavBar state={props.state.sideBar} />
+                                    <NavBar sideBarState={props.state.sideBar}/>
                                 </div>
                                 {/*/Navbar*/}
                                 {/*Content*/}
                                 <div className="app-wrapper-content col-md-10">
                                     <Route /*exact*/ path="/dialogs"
-                                                     render={() => <Dialogs state ={props.state.dialogsPage}/>}
+                                                     render={() =>
+                                                         <Dialogs
+                                                             dialogsPageState={props.state.dialogsPage}
+                                                             onChangeUpdate={props.onChangeUpdate}
+                                                         />
+                                                     }
                                     />
                                     <Route path="/profile"
-                                           render={() => <Profile state={props.state.profilePage} addNewPost = {props.addNewPost}/>}
+                                           render={() =>
+                                               <Profile
+                                                   profilePageState={props.state.profilePage}
+                                                   addNewPost={props.addNewPost}
+                                                   updateNewPost={props.updateNewPost}
+                                               />
+                                           }
                                     />
                                     <Route path="/news"
                                            render={() => <News/>}

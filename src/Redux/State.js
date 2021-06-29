@@ -14,8 +14,10 @@ let state = {
                 likesCount: 12,
             }
         ],
+        newPostText: "It's a current value for textarea",
     },
     dialogsPage: {
+        messagesTextArea: " It's a current value for textarea ",
         messagesData: [
             {
                 id: 1,
@@ -91,13 +93,23 @@ let state = {
     },
 }
 
-export let addNewPost = (newPostMessage) => {
+export let addNewPost = () => {
     let newPostData = {
         id: 3,
-        message: newPostMessage,
+        message: state.profilePage.newPostText,
         likesCount: 0,
     }
     state.profilePage.postsData.push(newPostData);
+    rerenderEntireTree(state);
+};
+
+export let updateNewPost = (text) => {
+    state.profilePage.newPostText = text;
+    rerenderEntireTree(state);
+};
+
+export let onChangeUpdate = (text) => {
+    state.dialogsPage.messagesTextArea = text;
     rerenderEntireTree(state);
 };
 

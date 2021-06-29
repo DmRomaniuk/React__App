@@ -5,7 +5,7 @@ import Post from "./Post/Post";
 //Construction for posts
 const MyPosts = (props) => {
 
-    // method map for every post
+    // method map for every post on the page
     let postsElement = props.posts.map((postItem) => {
         return <Post message={postItem.message} likesCount={postItem.likesCount}/>
     })
@@ -15,18 +15,25 @@ const MyPosts = (props) => {
 
     // create function - button onClick for post adding
     let addPost = () => {
-      let text = textAreaElement.current.value;
-      props.addNewPost(text);
-      textAreaElement.current.value = '';
+        props.addNewPost();
+        props.updateNewPost('');
     };
+
+    // function for textarea value(Redux(BLL) - state has changed and only after that, UI - textarea has changed)
+    let onPostChange = () => {
+        let text = textAreaElement.current.value;
+        props.updateNewPost(text);
+    }
 
     return (
         <div className={classes.myPosts__block}>
             <h3 className={classes.myPosts__title}>My Posts</h3>
             <div>
-                <textarea ref={textAreaElement}>
-                    Write your text...
-                </textarea>
+                <textarea
+                    ref={textAreaElement}
+                    onChange={onPostChange}
+                    value={props.onChangeValue}
+                />
             </div>
             <div>
                 <button onClick={addPost}>

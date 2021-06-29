@@ -1,6 +1,5 @@
 import classes from './NavBar.module.css';
 import {NavLink} from "react-router-dom";
-
 import OnlineIndicate from "../FriendsSideBar/sideBar";
 
 const NavBar = (props) => {
@@ -44,7 +43,7 @@ const NavBar = (props) => {
                     <h2 className={classes.sideBar__title}> Friends </h2>
                     <div className={classes.online}></div>
                 </div>
-                <OnlineIndicate users ={props.state.users} />
+                <OnlineIndicate users ={props.sideBarState.users} />
             </div>
             {/*/SIDEBAR*/}
         </div>
