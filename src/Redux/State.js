@@ -88,7 +88,7 @@ let state = {
                 image: 'https://cs6.pikabu.ru/post_img/2017/05/16/7/1494935376181977968.jpg',
             },
         ]
-    }
+    },
 }
 
 export let addNewPost = (newPostMessage) => {

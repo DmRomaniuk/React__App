@@ -32,6 +32,11 @@ const NavBar = (props) => {
                         Settings
                     </NavLink>
                 </div>
+                <div className={classes.item}>
+                    <NavLink to="/supportservice" activeClassName={classes.active__Link}>
+                        Support
+                    </NavLink>
+                </div>
             </nav>
             {/*SIDEBAR*/}
             <div className={classes.sideBar__wrapper}>

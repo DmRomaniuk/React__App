@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import {addNewPost} from "./Redux/State";
 
@@ -13,3 +12,4 @@ export let rerenderEntireTree = (state) => {
         document.getElementById('root')
     );
 }
+

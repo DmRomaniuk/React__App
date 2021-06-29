@@ -2,9 +2,10 @@ import React from 'react';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {rerenderEntireTree} from "./Render";
-import state from "./Redux/State";
+import state, {addNewPost} from "./Redux/State";
 import reportWebVitals from "./reportWebVitals";
 
+//render
 rerenderEntireTree(state);
 
 

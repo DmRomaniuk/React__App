@@ -7,6 +7,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
+import SupportService from "./Components/Support/SupportService";
 
 
 const App = (props) => {
@@ -44,6 +45,9 @@ const App = (props) => {
                                     />
                                     <Route path="/settings"
                                            render={() => <Settings/>}
+                                    />
+                                    <Route path="/supportservice"
+                                           render={() => <SupportService/>}
                                     />
                                 </div>
                                 {/*/Content*/}
