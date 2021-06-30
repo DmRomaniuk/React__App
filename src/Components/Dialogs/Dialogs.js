@@ -22,6 +22,7 @@ const Dialogs = (props) => {
 
 // create function - button onClick
     let addInfoBtn = () => {
+        props.addNewMessage();
         props.onChangeUpdate('')
     };
 

@@ -1,5 +1,8 @@
-import {rerenderEntireTree} from "../Render";
+let rerenderEntireTree = () => {
 
+}
+
+//all data
 let state = {
     profilePage: {
         postsData: [
@@ -68,6 +71,10 @@ let state = {
             {
                 id: 6,
                 name: 'Ivan'
+            },
+            {
+                id: 7,
+                name: 'Petro'
             }
         ],
     },
@@ -93,7 +100,8 @@ let state = {
     },
 }
 
-export let addNewPost = () => {
+//function that adds a post to the page in profile
+export const addNewPost = () => {
     let newPostData = {
         id: 3,
         message: state.profilePage.newPostText,
@@ -103,14 +111,32 @@ export let addNewPost = () => {
     rerenderEntireTree(state);
 };
 
-export let updateNewPost = (text) => {
+//function that changes text in profile textarea
+export const updateNewPost = (text) => {
     state.profilePage.newPostText = text;
     rerenderEntireTree(state);
 };
 
-export let onChangeUpdate = (text) => {
+//function that adds a new message to the page in Dialogs
+export const addNewMessage = () => {
+    let newMessageData = {
+        id: 7,
+        message: state.dialogsPage.messagesTextArea,
+    }
+    state.dialogsPage.messagesData.push(newMessageData);
+    rerenderEntireTree(state)
+}
+
+//function that changes text in messages textarea
+export const onChangeUpdate = (text) => {
     state.dialogsPage.messagesTextArea = text;
     rerenderEntireTree(state);
 };
+
+//function that refers to rerenderEntireTree function in the index.js
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer
+};
+
 
 export default state;
