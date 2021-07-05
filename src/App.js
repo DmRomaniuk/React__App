@@ -8,7 +8,6 @@ import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
 import SupportService from "./Components/Support/SupportService";
-import {addNewMessage} from "./Redux/State";
 
 
 const App = (props) => {
