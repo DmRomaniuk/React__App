@@ -1,6 +1,8 @@
 import React from "react";
 import classes from './MyPosts.module.css';
 import Post from "./Post/Post";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../Redux/State";
+
 
 //Construction for posts
 const MyPosts = (props) => {
@@ -15,14 +17,15 @@ const MyPosts = (props) => {
 
     // create function - button onClick for post adding
     let addPost = () => {
-        props.addNewPost();
-        props.updateNewPost('');
+        // props.addNewPost();
+        // props.updateNewPost('');
+        props.dispatch(addPostActionCreator())
     };
 
     // function for textarea value(Redux(BLL) - state has changed and only after that, UI - textarea has changed)
     let onPostChange = () => {
         let text = textAreaElement.current.value;
-        props.updateNewPost(text);
+        props.dispatch( updateNewPostTextActionCreator(text));
     }
 
     return (

@@ -1,3 +1,8 @@
+const addNewPost = 'ADD-NEW-POST';
+const updatePostText = 'UPDATE-NEW-POST';
+const addDialogInfoBtn = 'ADD-NEW-MESSAGE';
+const onChangeAreaText = 'ON-CHANGE-UPDATE';
+
 let store = {
     _state: {
         profilePage: {
@@ -96,7 +101,7 @@ let store = {
         },
     },
 
-    getState () {
+    getState() {
         return this._state;
     },
 
@@ -104,23 +109,30 @@ let store = {
         //rerender our app page
     },
 
-    //function that adds a post to the page in profile
-    addNewPost() {
-        let newPostData = {
-            id: 3,
-            message: this._state.profilePage.newPostText,
-            likesCount: 0,
-        }
-        this._state.profilePage.postsData.push(newPostData);
-        this._callSubscriber(this._state);
+    //function that refers to rerenderEntireTree function in the index.js
+    subscribe(observer) {
+        this._callSubscriber = observer
     },
 
-    //function that changes text in profile textarea
-    updateNewPost(text) {
-        this._state.profilePage.newPostText = text;
-        this._callSubscriber(this._state);
-    },
+    // //function that adds a post to the page in profile
+    // addNewPost() {
+    //     let newPostData = {
+    //         id: 3,
+    //         message: this._state.profilePage.newPostText,
+    //         likesCount: 0,
+    //     }
+    //     this._state.profilePage.postsData.push(newPostData);
+    //     this._state.profilePage.newPostText = '';
+    //     this._callSubscriber(this._state);
+    // },
+    //
+    // //function that changes text in profile textarea
+    // updateNewPost(newText) {
+    //     this._state.profilePage.newPostText = newText;
+    //     this._callSubscriber(this._state);
+    // },
 
+    // ----------------------------------------------------------------
     //function that adds a new message to the page in Dialogs
     addNewMessage() {
         let newMessageData = {
@@ -130,18 +142,64 @@ let store = {
         this._state.dialogsPage.messagesData.push(newMessageData);
         this._callSubscriber(this._state)
     },
-
     //function that changes text in messages textarea
     onChangeUpdate(text) {
         this._state.dialogsPage.messagesTextArea = text;
         this._callSubscriber(this._state);
     },
+    // ----------------------------------------------------------------
 
-    //function that refers to rerenderEntireTree function in the index.js
-    subscribe(observer) {
-        this._callSubscriber = observer
-    },
+    dispatch(action) { //type: {'ADD-NEW-POST'}
+        if (action.type === 'ADD-NEW-POST') {//function that adds a post to the page in profile
+            let newPostData = {
+                id: 3,
+                message: this._state.profilePage.newPostText,
+                likesCount: 0,
+            }
+            this._state.profilePage.postsData.push(newPostData);
+            this._state.profilePage.newPostText = '';
+            this._callSubscriber(this._state)
+        } else if (action.type === 'UPDATE-NEW-POST') { //function that changes text in profile textarea
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+        } else if (action.type === 'ADD-NEW-MESSAGE') { //function that adds a new message to the page in Dialogs
+            let newMessageData = {
+                id: 7,
+                message: this._state.dialogsPage.messagesTextArea,
+            }
+            this._state.dialogsPage.messagesData.push(newMessageData);
+            this._state.dialogsPage.messagesTextArea = '';
+            this._callSubscriber(this._state)
+        } else if (action.type === 'ON-CHANGE-UPDATE') {//function that changes text in messages textarea
+            this._state.dialogsPage.messagesTextArea = action.text;
+            this._callSubscriber(this._state);
+        }
+    }
+
 }
 
+export const addPostActionCreator = () => {
+    return {
+        type: addNewPost,
+    }
+};
+export const updateNewPostTextActionCreator = (text) => {
+    return {
+        type: updatePostText,
+        newText: text,
+    }
+};
+
+export const addInfoActionCreator = () => {
+    return {
+        type: addDialogInfoBtn,
+    }
+};
+export const onChangeAreaActionCreator = (messageText) => {
+    return {
+        type: onChangeAreaText,
+        text: messageText,
+    }
+};
 
 export default store;

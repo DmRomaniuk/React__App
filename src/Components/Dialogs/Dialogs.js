@@ -2,6 +2,8 @@ import React from "react";
 import classes from './Dialogs.module.css';
 import Message from "./MessageItem/MessageItem";
 import DialogItem from "./DialogItem/DialogItem";
+import {addInfoActionCreator, onChangeAreaActionCreator} from "../../Redux/State";
+
 
 
 const Dialogs = (props) => {
@@ -22,13 +24,13 @@ const Dialogs = (props) => {
 
 // create function - button onClick
     let addInfoBtn = () => {
-        props.addNewMessage();
-        props.onChangeUpdate('')
+        // props.addNewMessage();
+        props.dispatch(addInfoActionCreator())
     };
 
     let onChangeArea = () => {
         let messageText = dialogTextArea.current.value;
-        props.onChangeUpdate(messageText);
+        props.dispatch(onChangeAreaActionCreator(messageText))
     }
 
     return (

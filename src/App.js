@@ -35,8 +35,7 @@ const App = (props) => {
                                                      render={() =>
                                                          <Dialogs
                                                              dialogsPageState={props.state.dialogsPage}
-                                                             onChangeUpdate={props.onChangeUpdate}
-                                                             addNewMessage={props.addNewMessage}
+                                                             dispatch={props.dispatch}
                                                          />
                                                      }
                                     />
@@ -44,8 +43,7 @@ const App = (props) => {
                                            render={() =>
                                                <Profile
                                                    profilePageState={props.state.profilePage}
-                                                   addNewPost={props.addNewPost}
-                                                   updateNewPost={props.updateNewPost}
+                                                   dispatch={props.dispatch}
                                                />
                                            }
                                     />
